@@ -1,0 +1,335 @@
+<html xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xml:lang="en" lang="en" itemscope itemtype="http://schema.org/Article">
+<head>
+	<meta charset="utf-8">
+	<title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}</title>
+	{block:Description}
+	<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	<meta name="if:Show Archive Link" content="1" />
+	<meta name="{text:Disqus Shortname}" content="" />
+	<meta name="{text:Twitter Username}" content="" />
+
+	<!-- Facebook og:meta -->
+	<meta property="og:title" content="{Title}" />
+	<meta property="og:url" content="{Permalink}" />
+	<meta property="og:type" content="article" />
+	<meta property="og:image" content="{PortraitURL-128}" />
+
+	<link rel="stylesheet" type="text/css" href="styles.min.css">
+	<link rel="icon" href="{Favicon}"/>
+	<link rel="apple-touch-icon" href="{PortraitURL-64}"/>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+	<!-- start of wrap -->
+	<div class="wrap">
+		<header class="header">
+			<nav>
+				<ul class="menu">
+					{block:IfShowArchiveLink}
+					<li>
+						<a class="animate-hover" href="/archive">Archives</a>
+					</li>
+					{/block:IfShowArchiveLink}
+
+					{block:AskEnabled}
+					<li>
+						<a class="animate-hover" href="/ask">Ask</a>
+					</li>
+					{/block:AskEnabled}
+
+					<li>
+						<a class="animate-hover" href="http://voronianski.com">Who is it?</a>
+					</li>
+				</ul>
+			</nav>
+
+			<a href="/" class="logo">{Title}</a>
+
+			<div class="blog-desc">
+				Hunted by Dmitri Voronianski, javascript developer and CSS nuggets lover. So talk to me on
+				<a href="http://twitter.com/voronianski" target="_blank" class="twi-link">twitter</a>
+				or share your
+				<a href="http://dribbble.com/voronianski" target="_blank" class="dri-link">dribbble</a>
+				inspiration with me, I'll appreciate it ;)
+			</div>
+		</header>
+
+		<!-- main left column -->
+
+		<section class="blog left">
+			{block:Posts}
+
+	{block:Text}
+			<article class="post shadows">
+				<div class="content">
+					{block:Date}
+					<div class="time">{TimeAgo}</div>
+					{/block:Date}
+					<!-- disqus comments -->
+					<div class="disqus">
+						<a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+					</div>
+					{block:Title}
+					<h2>
+						<a class="title animate-hover" href="{Permalink}">{Title}</a>
+					</h2>
+					{/block:Title}
+					<div class="cont">{Body}</div>
+					{block:HasTags}
+					<div class="tags">
+						{block:Tags}
+						<a href="{TagURLChrono}">{Tag}</a>
+						{/block:Tags}
+					</div>
+					{/block:HasTags}
+					<div class="socials">
+						<!-- twitter button -->
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-text="{PhotoAlt}">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						<!-- google+ button -->
+						<div class="google-plus">
+							<g:plusone href="{Permalink}" size="medium"></g:plusone>
+						</div>
+
+						<!-- facebook button -->
+						<div class="facebook">
+							<div class="fb-like" data-href="{Permalink}" data-send="false" data-layout="button_count" data-width="108" data-show-faces="false" data-font="arial"></div>
+						</div>
+					</div>
+					{block:PostNotes}
+					<div class="show_notes left">{PostNotes}</div>
+					{/block:PostNotes}
+				</div>
+			</article>
+			{/block:Text}
+
+	{block:Photo}
+			<article class="post shadows">
+				{block:Title}
+				<h2>
+					<a class="title animate-hover" href="{Permalink}">{Title}</a>
+				</h2>
+				{/block:Title}
+
+	 {block:Date}
+				<div class="time">{TimeAgo}</div>
+				{/block:Date}
+				<!-- disqus comments -->
+				<div class="disqus">
+					<a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+				</div>
+				<div class="content">
+
+					<div class="cont">
+
+						<div class="photo animate-hover">
+							<a href="{Permalink}" >
+								<img src="{PhotoURL-500}" alt="{PhotoAlt}"></a>
+						</div>
+						{block:Caption}{Caption}{/block:Caption}
+					</div>
+					{block:HasTags}
+					<div class="tags">
+						{block:Tags}
+						<a href="{TagURLChrono}">{Tag}</a>
+						{/block:Tags}
+					</div>
+					{/block:HasTags}
+					<div class="socials">
+						<!-- twitter button -->
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-text="{PhotoAlt}">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						<!-- google+ button -->
+						<div class="google-plus">
+							<g:plusone href="{Permalink}" size="medium"></g:plusone>
+						</div>
+
+						<!-- facebook button -->
+						<div class="facebook">
+							<div class="fb-like" data-href="{Permalink}" data-send="false" data-layout="button_count" data-width="108" data-show-faces="false" data-font="arial"></div>
+						</div>
+					</div>
+					{block:PostNotes}
+					<div class="show_notes left">{PostNotes}</div>
+					{/block:PostNotes}
+				</div>
+
+			</article>
+			{/block:Photo}
+
+	{block:Video}
+			<article class="post shadows">
+				{block:Title}
+				<h2>
+					<a class="title animate-hover" href="{Permalink}">{Title}</a>
+				</h2>
+				{/block:Title}
+
+	 {block:Date}
+				<div class="time">{TimeAgo}</div>
+				{/block:Date}
+				<!-- disqus comments -->
+				<div class="disqus">
+					<a class="dsq-comment-count" href="{Permalink}#disqus_thread">Comments</a>
+				</div>
+				<div class="content">
+
+					<div class="cont">
+
+						<div class="video">{Video-400}</div>
+						{block:Caption}{Caption}{/block:Caption}
+					</div>
+					{block:HasTags}
+					<div class="tags">
+						{block:Tags}
+						<a href="{TagURLChrono}">{Tag}</a>
+						{/block:Tags}
+					</div>
+					{/block:HasTags}
+					<div class="socials">
+						<!-- twitter button -->
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-text="{PhotoAlt}">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						<!-- google+ button -->
+						<div class="google-plus">
+							<g:plusone href="{Permalink}" size="medium"></g:plusone>
+						</div>
+
+						<!-- facebook button -->
+						<div class="facebook">
+							<div class="fb-like" data-href="{Permalink}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+						</div>
+					</div>
+				</div>
+
+			</article>
+			{/block:Video}
+
+		{block:Permalink}
+			<!-- Disqus  -->
+			{block:IfDisqusShortname}
+			<div id="disqus_thread"></div>
+			<script type="text/javascript">
+			/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+			var disqus_shortname = '{text:Disqus Shortname}';
+			var disqus_url = "{Permalink}";
+			var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+
+			/* * * DON'T EDIT BELOW THIS LINE * * */
+			(function() {
+				var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+				dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+				(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+			</script>
+			<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+			<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+			{/block:IfDisqusShortname}
+			{/block:Permalink}
+
+	{/block:Posts}
+
+	{block:IndexPage}
+			<div class="paginator clear">
+				{block:PreviousPage}
+				<a href="{PreviousPage}" class="prev left animate-hover">&larr; Newer</a>
+				{/block:PreviousPage}
+				<div class="page-count">
+					{CurrentPage} page of
+					<span>{TotalPages}</span>
+				</div>
+				{block:NextPage}
+				<a href="{NextPage}" class="next right animate-hover">Older &rarr;</a>
+				{/block:NextPage}
+			</div>
+			{block:IndexPage}
+		</section>
+
+		<!-- end of main left column -->
+
+		<!-- right column block -->
+		<section class="column right query">
+
+			<div class="contacts">
+				<h3>Contact</h3>
+				<div class="mail">
+					Don't you want to write a
+					<a href="mailto:dmitri.voronianski@gmail.com">message</a>
+					to me? You're welcome!
+				</div>
+			</div>
+			{block:Twitter}
+			<div id="twitter" class="tweeter-block">
+				<h3>Tweets</h3>
+
+				<ul id="tweets"></ul>
+				<script type="text/javascript" src="/tweets.js"></script>
+				<script type="text/javascript">
+					function recent_tweets(data) {
+						for (i = 0; i < 5; i++) {
+							document.getElementById("tweets").innerHTML =
+								document.getElementById("tweets").innerHTML +
+								'<li><a href="http://twitter.com/voronianski/status/' +
+								(data[i].id_str ? data[i].id_str : data[i].id) +
+								'" target="_blank"><div class="content">' + data[i].text +
+								'</div></a></li>';
+						}
+						document.getElementById("twitter").style.display = 'block';
+					}
+				</script>
+
+				<div class="t-fol">
+					<a href="https://twitter.com/voronianski" class="twitter-follow-button" data-show-count="false">Follow @voronianski</a>
+					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+				</div>
+
+			</div>
+			{/block:Twitter}
+
+			{block:Following}
+			<div class="follow clearfix">
+				<h3>Following tumblers</h3>
+				<ul class="clearfix">
+					{block:Followed}
+					<li>
+						<a href="{FollowedURL}" target="_blank">
+							<img src="{FollowedPortraitURL-40}" title="{FollowedName}"/>
+						</a>
+					</li>
+					{/block:Followed}
+				</ul>
+			</div>
+			{/block:Following}
+		</section>
+		<!-- end of column block -->
+
+		<footer class="clear">
+			<div class="copywrite left">
+				&copy; 2012-2014 Pixelhunter.me / All Rights Reserved / Inspired by Tiny
+			</div>
+		</footer>
+	</div>
+	<!-- end of wrap -->
+
+	<!-- Disqus count -->
+	{block:IfDisqusShortname}
+	<script type="text/javascript">
+	var disqus_shortname = '{text:Disqus Shortname}';
+	(function () {
+	var s = document.createElement('script'); s.async = true;
+	s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+	(document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+	}());
+	</script>
+	{/block:IfDisqusShortname}
+
+</body>
+</html>
