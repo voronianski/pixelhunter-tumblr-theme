@@ -1,0 +1,91 @@
+<!doctype html>
+<html xmlns:fb="https://www.facebook.com/2008/fbml" xmlns:og="http://ogp.me/ns#" xml:lang="en" lang="en" itemscope itemtype="http://schema.org/Article">
+<head>
+	<meta charset="utf-8">
+	<title>{block:PostTitle}{PostTitle} - {/block:PostTitle}{Title}</title>
+	{block:Description}
+	<meta name="description" content="{MetaDescription}" />
+	{/block:Description}
+	<meta name="if:Show Archive Link" content="1" />
+	<meta name="{text:Disqus Shortname}" content="" />
+	<meta name="{text:Twitter Username}" content="" />
+
+	<meta property="og:title" content="{Title}" />
+	<meta property="og:url" content="{Permalink}" />
+	<meta property="og:type" content="article" />
+
+	<link rel="icon" href="{Favicon}"/>
+	<link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/prism.css">
+</head>
+<body>
+
+	<header>
+
+	</header>
+
+	<section class="posts">
+	{block:Posts}
+
+		{block:Text}
+		<div class="post">
+			<article class="text">
+				{block:Title}
+				<h2 class="post-title">{Title}</h2>
+				{/block:Title}
+
+				{Body}
+
+				<footer class="post-footer">
+					<ul class="post-meta">
+						{block:Date}
+						<li class="inline"><a href="{Permalink}" title="{DayOfMonth}/{MonthNumber}/{Year}">{DayOfMonth}/{MonthNumber}/{Year}</a></li>
+						{/block:Date}
+
+						{block:NoteCount}
+						<li class="inline offset"><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+						{/block:NoteCount}
+					</ul>
+				</footer>
+			</article>
+		</div>
+		{/block:Text}
+
+	{/block:Posts}
+	</section>
+
+	{block:Pagination}
+	<nav class="pages-nav clearfix">
+		{block:PreviousPage}
+		<a class="left" href="{PreviousPage}">← Newer Posts</a>
+		{/block:PreviousPage}
+
+		{block:NextPage}
+		<a class="right" href="{NextPage}">Older Posts →</a>
+		{/block:NextPage}
+	</nav>
+	{/block:Pagination}
+
+	<!-- Highlight code blocks -->
+	<script src="js/prism.js"></script>
+
+	<!-- Disqus count -->
+	{block:IfDisqusShortname}
+	<script type="text/javascript">
+	var disqus_shortname = '{text:Disqus Shortname}';
+	(function () {
+		var s = document.createElement('script'); s.async = true;
+		s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
+		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+	}());
+	</script>
+	{/block:IfDisqusShortname}
+
+</body>
+</html>
