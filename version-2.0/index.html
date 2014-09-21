@@ -26,23 +26,78 @@
 </head>
 <body>
 
-	<header>
-
+	<header class="header">
+		<div class="header-content">
+			<ul class="social-links nav">
+				<li>
+					<a href="https://twitter.com/voronianski" title="Twitter">
+						<i class="icon twitter" data-icon=""></i>
+						<span class="accessibility">Twitter</span>
+					</a>
+				</li>
+				<li>
+					<a href="http://github.com/voronianski" title="Github">
+						<i class="icon github" data-icon="'"></i>
+						<span class="accessibility">Github</span>
+					</a>
+				</li>
+				<li>
+					<a href="http://dribbble.com/voronianski" title="Dribbble">
+						<i class="icon dribbble" data-icon="&amp;"></i>
+						<span class="accessibility">Dribbble</span>
+					</a>
+				</li>
+				<li>
+					<a href="http://instagram.com/voronianski" title="Instagram">
+						<i class="icon instagram" data-icon=""></i>
+						<span class="accessibility">Instagram</span>
+					</a>
+				</li>
+				<li>
+					<a href="https://www.linkedin.com/in/voronianski" title="LinkedIn">
+						<i class="icon linkedin" data-icon="."></i>
+						<span class="accessibility">LinkedIn</span>
+					</a>
+				</li>
+				<li>
+					<a href="skype://dimmie.sparx" title="Skype">
+						<i class="icon skype" data-icon="."></i>
+						<span class="accessibility">Skype</span>
+					</a>
+				</li>
+				<li>
+					<a href="mailto:dmitri.voronianski@gmail.com" title="Email">
+						<i class="icon email" data-icon=","></i>
+						<span class="accessibility">Email</span>
+					</a>
+				</li>
+			</ul>
+		</div>
 	</header>
 
 	<section class="posts">
 	{block:Posts}
 
 		{block:Text}
-		<div class="post">
+		<div class="post {block:Permalink}details{/block:Permalink}">
 			<article class="text">
 				{block:Title}
-				<h2 class="post-title">{Title}</h2>
+				<h2 class="post-title"><a href="{Permalink}">{Title}</a></h2>
 				{/block:Title}
 
 				{Body}
 
 				<footer class="post-footer">
+					{block:HasTags}
+					<ul class="post-tags">
+						{block:Tags}
+						<li>
+							<a href="{TagURLChrono}">#{Tag}</a>
+						</li>
+						{/block:Tags}
+					</ul>
+					{/block:HasTags}
+
 					<ul class="post-meta">
 						{block:Date}
 						<li class="inline"><a href="{Permalink}" title="{DayOfMonth}/{MonthNumber}/{Year}">{DayOfMonth}/{MonthNumber}/{Year}</a></li>
@@ -53,9 +108,193 @@
 						{/block:NoteCount}
 					</ul>
 				</footer>
+
+				{block:Permalink}
+					<div class="socials">
+						<!-- twitter button -->
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-text="{PhotoAlt}">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						<!-- google+ button -->
+						<div class="google-plus">
+							<g:plusone href="{Permalink}" size="medium"></g:plusone>
+						</div>
+
+						<!-- facebook button -->
+						<div class="facebook">
+							<div class="fb-like" data-href="{Permalink}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+						</div>
+					</div>
+
+					{block:IfDisqusShortname}
+					<div class="post-comments">
+						<div id="disqus_thread"></div>
+						<script type="text/javascript">
+						/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+						var disqus_shortname = '{text:Disqus Shortname}';
+						var disqus_url = "{Permalink}";
+						var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+
+						/* * * DON'T EDIT BELOW THIS LINE * * */
+						(function() {
+							var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+							dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+							(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+						})();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+					</div>
+					{/block:IfDisqusShortname}
+				{/block:Permalink}
 			</article>
 		</div>
 		{/block:Text}
+
+		{block:Photo}
+		<div class="post {block:Permalink}details{/block:Permalink}">
+			<article class="photo">
+				<p class="photo_container">
+					<a href="{Permalink}" >
+						<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">
+					</a>
+				</p>
+
+				{block:Caption}{Caption}{/block:Caption}
+
+				<footer class="post-footer">
+					{block:HasTags}
+					<ul class="post-tags">
+						{block:Tags}
+						<li>
+							<a href="{TagURLChrono}">#{Tag}</a>
+						</li>
+						{/block:Tags}
+					</ul>
+					{/block:HasTags}
+
+					<ul class="post-meta">
+						{block:Date}
+						<li class="inline"><a href="{Permalink}" title="{DayOfMonth}/{MonthNumber}/{Year}">{DayOfMonth}/{MonthNumber}/{Year}</a></li>
+						{/block:Date}
+
+						{block:NoteCount}
+						<li class="inline offset"><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+						{/block:NoteCount}
+					</ul>
+				</footer>
+
+				{block:Permalink}
+					<div class="socials">
+						<!-- twitter button -->
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-text="{PhotoAlt}">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						<!-- google+ button -->
+						<div class="google-plus">
+							<g:plusone href="{Permalink}" size="medium"></g:plusone>
+						</div>
+
+						<!-- facebook button -->
+						<div class="facebook">
+							<div class="fb-like" data-href="{Permalink}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+						</div>
+					</div>
+
+					{block:IfDisqusShortname}
+					<div class="post-comments">
+						<div id="disqus_thread"></div>
+						<script type="text/javascript">
+						/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+						var disqus_shortname = '{text:Disqus Shortname}';
+						var disqus_url = "{Permalink}";
+						var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+
+						/* * * DON'T EDIT BELOW THIS LINE * * */
+						(function() {
+							var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+							dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+							(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+						})();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+					</div>
+					{/block:IfDisqusShortname}
+				{/block:Permalink}
+			</article>
+		</div>
+		{/block:Photo}
+
+		{block:Video}
+		<div class="post {block:Permalink}details{/block:Permalink}">
+			<article class="video">
+				<p class="video_container">
+					{VideoEmbed-500}
+				</p>
+
+				{block:Caption}{Caption}{/block:Caption}
+
+				<footer class="post-footer">
+					{block:HasTags}
+					<ul class="post-tags">
+						{block:Tags}
+						<li>
+							<a href="{TagURLChrono}">#{Tag}</a>
+						</li>
+						{/block:Tags}
+					</ul>
+					{/block:HasTags}
+
+					<ul class="post-meta">
+						{block:Date}
+						<li class="inline"><a href="{Permalink}" title="{DayOfMonth}/{MonthNumber}/{Year}">{DayOfMonth}/{MonthNumber}/{Year}</a></li>
+						{/block:Date}
+
+						{block:NoteCount}
+						<li class="inline offset"><a href="{Permalink}">{NoteCountWithLabel}</a></li>
+						{/block:NoteCount}
+					</ul>
+				</footer>
+
+				{block:Permalink}
+					<div class="socials">
+						<!-- twitter button -->
+						<a href="https://twitter.com/share" class="twitter-share-button" data-url="{Permalink}" data-text="{PhotoAlt}">Tweet</a>
+						<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+						<!-- google+ button -->
+						<div class="google-plus">
+							<g:plusone href="{Permalink}" size="medium"></g:plusone>
+						</div>
+
+						<!-- facebook button -->
+						<div class="facebook">
+							<div class="fb-like" data-href="{Permalink}" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
+						</div>
+					</div>
+
+					{block:IfDisqusShortname}
+					<div class="post-comments">
+						<div id="disqus_thread"></div>
+						<script type="text/javascript">
+						/* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+						var disqus_shortname = '{text:Disqus Shortname}';
+						var disqus_url = "{Permalink}";
+						var disqus_title ="{block:PostTitle}{PostTitle}{/block:PostTitle}";
+
+						/* * * DON'T EDIT BELOW THIS LINE * * */
+						(function() {
+							var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+							dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+							(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+						})();
+						</script>
+						<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+					</div>
+					{/block:IfDisqusShortname}
+				{/block:Permalink}
+			</article>
+		</div>
+		{/block:Video}
 
 	{/block:Posts}
 	</section>
@@ -74,18 +313,6 @@
 
 	<!-- Highlight code blocks -->
 	<script src="js/prism.js"></script>
-
-	<!-- Disqus count -->
-	{block:IfDisqusShortname}
-	<script type="text/javascript">
-	var disqus_shortname = '{text:Disqus Shortname}';
-	(function () {
-		var s = document.createElement('script'); s.async = true;
-		s.src = 'http://{text:Disqus Shortname}.disqus.com/count.js';
-		(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
-	}());
-	</script>
-	{/block:IfDisqusShortname}
 
 </body>
 </html>

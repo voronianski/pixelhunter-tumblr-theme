@@ -104,6 +104,44 @@ html {
 	overflow: hidden;
 }
 
+@font-face {
+	font-family: 'IcoMoon';
+	src: url(http://themes.theultralinx.com/fonts/ultraflow/icomoon.eot);
+	src: url(http://themes.theultralinx.com/fonts/ultraflow/icomoon.eot?#iefix) format("embedded-opentype"), url(http://themes.theultralinx.com/fonts/ultraflow/icomoon.svg#icomoon) format("svg"), url(http://themes.theultralinx.com/fonts/ultraflow/icomoon.woff) format("woff"), url(http://themes.theultralinx.com/fonts/ultraflow/icomoon.ttf) format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon {
+	font-family: 'IcoMoon';
+	font-size: 16px;
+	width: 1em;
+	height: 1em;
+	display: inline-block;
+	line-height: 1;
+	position: relative;
+	vertical-align: middle;
+	zoom: 1;
+	font-style: normal;
+	font-weight: normal;
+	text-align: center;
+}
+
+.icon:before {
+	content: attr(data-icon);
+}
+
+.accessibility {
+	border: 0 !important;
+	clip: rect(0 0 0 0) !important;
+	height: 1px !important;
+	margin: -1px !important;
+	overflow: hidden !important;
+	padding: 0 !important;
+	position: absolute !important;
+	width: 1px !important;
+}
+
 body {
 	color: #292b2e;
 	font: 1em/1.5 'Helvetica Neue', Arial, Helvetica, sans-serif;
@@ -121,7 +159,8 @@ a, u, ins {
 }
 
 a {
-	color: #3498db;
+	color: #36A6FF;
+	transition: color .3s;
 }
 
 a:hover, a:focus, a:active {
@@ -129,13 +168,43 @@ a:hover, a:focus, a:active {
 	text-decoration: none;
 }
 
+.header {
+	background: #f3f3f3;
+	text-align: center;
+	padding-bottom: 25px;
+}
+
+.header-content {
+	max-width: 580px;
+	margin: 0 auto;
+	padding: 0 40px;
+}
+
+ul.social-links {
+	margin: 15px 0 0 0;
+}
+
+ul.social-links li {
+	display: inline-block;
+	margin-left: 20px;
+}
+
+ul.social-links li:first-child {
+	margin-left: 0;
+}
+
 .posts {
 	background: #fff;
 }
 
 .post {
+	width: 100%;
 	padding: 50px 0 20px;
 	border-bottom: 1px solid #f3f3f3;
+}
+
+.post.details {
+	border-bottom: 0;
 }
 
 .post article, .pages-nav, .permalink-nav {
@@ -161,7 +230,7 @@ a:hover, a:focus, a:active {
 h1, h2, h3, h4, h5, h6, hgroup,
 ul, ol, dl, blockquote, p, address,
 table, fieldset, figure, pre, hr,
-.post article {
+.post article, .socials {
 	margin-bottom: 24px;
 	margin-bottom: 1.5rem;
 }
@@ -169,6 +238,10 @@ table, fieldset, figure, pre, hr,
 h2.post-title {
 	font-size: 24px;
 	font-weight: 700;
+}
+
+h2.post-title a {
+	color: #292b2e;
 }
 
 .post-footer {
@@ -189,4 +262,24 @@ h2.post-title {
 .post-meta .offset,
 .post-social-buttons .offset {
 	margin-left: 15px;
+}
+
+.post-tags li {
+	display: inline-block;
+	font-size: 12px;
+	margin: 0 2px;
+}
+
+.post-tags li:first-child {
+	margin-left: 0;
+}
+
+.read_more_container a {
+	font-size: 13px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+
+.facebook, .google-plus, .twitter-share-button {
+	display: inline-block;
 }
