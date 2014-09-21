@@ -6,69 +6,69 @@
 	{block:Description}
 	<meta name="description" content="{MetaDescription}" />
 	{/block:Description}
+
 	<meta name="if:Show Archive Link" content="1" />
-	<meta name="{text:Disqus Shortname}" content="" />
-	<meta name="{text:Twitter Username}" content="" />
+	<meta name="text:Disqus Shortname" content="blog-voronianski" />
 
 	<meta property="og:title" content="{Title}" />
 	<meta property="og:url" content="{Permalink}" />
 	<meta property="og:type" content="article" />
 
-	<link rel="icon" href="{Favicon}"/>
-	<link rel="apple-touch-icon" href="{PortraitURL-128}"/>
+	<link rel="icon" href="https://dl.dropboxusercontent.com/u/100463011/pixelhunter-avatar.png"/>
+	<link rel="apple-touch-icon" href="https://dl.dropboxusercontent.com/u/100463011/pixelhunter-avatar.png"/>
+	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
 
 	<!--[if lt IE 9]>
 	<script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
 	<![endif]-->
 
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="stylesheet" href="css/prism.css">
+	<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/100463011/style.css">
+	<link rel="stylesheet" href="https://dl.dropboxusercontent.com/u/100463011/prism.css">
 </head>
 <body>
 
-	<header class="header">
+	<header class="header {block:Permalink}permalink{/block:Permalink}">
+		<div class="header-video"></div>
+		<div class="video-overlay"></div>
+
 		<div class="header-content">
+			<h1 class="blog-title">
+				<a href="/">Pixelhunter.me</a>
+			</h1>
+
+			<div class="blog-tagline">
+				The most evident programming bits hunted by Dmitri Voronianski. Not a multicolored stencil. Nor a camera and a crew.
+			</div>
+
 			<ul class="social-links nav">
 				<li>
 					<a href="https://twitter.com/voronianski" title="Twitter">
-						<i class="icon twitter" data-icon=""></i>
-						<span class="accessibility">Twitter</span>
+						<i class="icon twitter"></i>
 					</a>
 				</li>
 				<li>
 					<a href="http://github.com/voronianski" title="Github">
-						<i class="icon github" data-icon="'"></i>
-						<span class="accessibility">Github</span>
+						<i class="icon github"></i>
 					</a>
 				</li>
 				<li>
 					<a href="http://dribbble.com/voronianski" title="Dribbble">
-						<i class="icon dribbble" data-icon="&amp;"></i>
-						<span class="accessibility">Dribbble</span>
+						<i class="icon dribbble"></i>
 					</a>
 				</li>
 				<li>
 					<a href="http://instagram.com/voronianski" title="Instagram">
-						<i class="icon instagram" data-icon=""></i>
-						<span class="accessibility">Instagram</span>
+						<i class="icon instagram"></i>
 					</a>
 				</li>
 				<li>
-					<a href="https://www.linkedin.com/in/voronianski" title="LinkedIn">
-						<i class="icon linkedin" data-icon="."></i>
-						<span class="accessibility">LinkedIn</span>
-					</a>
-				</li>
-				<li>
-					<a href="skype://dimmie.sparx" title="Skype">
-						<i class="icon skype" data-icon="."></i>
-						<span class="accessibility">Skype</span>
+					<a href="https://www.linkedin.com/in/voronianski" title="Linkedin">
+						<i class="icon linkedin"></i>
 					</a>
 				</li>
 				<li>
 					<a href="mailto:dmitri.voronianski@gmail.com" title="Email">
-						<i class="icon email" data-icon=","></i>
-						<span class="accessibility">Email</span>
+						<i class="icon email"></i>
 					</a>
 				</li>
 			</ul>
@@ -312,7 +312,30 @@
 	{/block:Pagination}
 
 	<!-- Highlight code blocks -->
-	<script src="js/prism.js"></script>
+	<script src="https://dl.dropboxusercontent.com/u/100463011/prism.js"></script>
+
+	<!-- Google+ script -->
+	<script type="text/javascript">
+	window.___gcfg = {lang: 'ru'};
+
+	(function() {
+		var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+		po.src = 'https://apis.google.com/js/plusone.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+	})();
+	</script>
+
+	<!-- Facebook script -->
+	<div id="fb-root"></div>
+	<script type="text/javascript">
+	(function(d, s, id) {
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) return;
+		js = d.createElement(s); js.id = id;
+		js.src = "//connect.facebook.net/ru_RU/all.js#xfbml=1&appId=278153935531324";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script>
 
 </body>
 </html>
