@@ -106,11 +106,11 @@ html {
 
 @font-face {
 	font-family: 'IcoMoon';
-	src: url(https://dl.dropboxusercontent.com/u/100463011/icomoon.eot);
-	src: url(https://dl.dropboxusercontent.com/u/100463011/icomoon.eot?#iefix) format("embedded-opentype"),
-		 url(https://dl.dropboxusercontent.com/u/100463011/icomoon.svg#icomoon) format("svg"),
-		 url(https://dl.dropboxusercontent.com/u/100463011/icomoon.woff) format("woff"),
-		 url(https://dl.dropboxusercontent.com/u/100463011/icomoon.ttf) format("truetype");
+	src: url(https://dl.dropboxusercontent.com/u/100463011/pixelhunter/fonts/icomoon.eot);
+	src: url(https://dl.dropboxusercontent.com/u/100463011/pixelhunter/fonts/icomoon.eot?#iefix) format("embedded-opentype"),
+		 url(https://dl.dropboxusercontent.com/u/100463011/pixelhunter/fonts/icomoon.svg#icomoon) format("svg"),
+		 url(https://dl.dropboxusercontent.com/u/100463011/pixelhunter/fonts/icomoon.woff) format("woff"),
+		 url(https://dl.dropboxusercontent.com/u/100463011/pixelhunter/fonts/icomoon.ttf) format("truetype");
 	font-weight: normal;
 	font-style: normal;
 }

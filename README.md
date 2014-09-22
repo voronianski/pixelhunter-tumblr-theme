@@ -2,7 +2,7 @@
 
 > Blog themes and related resources for http://pixelhunter.me
 
-[![Glitchy](https://dl.dropboxusercontent.com/u/100463011/pixelhunter-screen.gif)](http://pixelhunter.me)
+[![Glitchy](https://dl.dropboxusercontent.com/u/100463011/pixelhunter/pixelhunter-screen.gif)](http://pixelhunter.me)
 
 ### Versions
 
