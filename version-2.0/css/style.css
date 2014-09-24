@@ -304,6 +304,12 @@ ul.social-links li a:focus {
 	border-bottom: 0;
 }
 
+.post b a,
+.post strong a {
+	color: #292b2e;
+	text-decoration: underline;
+}
+
 .post article, .pages-nav, .permalink-nav {
 	max-width: 580px;
 	margin: 0 auto;
@@ -316,6 +322,16 @@ ul.social-links li a:focus {
 .post article h3 {
 	font-weight: bold;
 	text-transform: uppercase;
+}
+
+.post .cont a {
+	color: #00bbff;
+}
+
+.post .cont a:hover,
+.post .cont a:active,
+.post .cont a:focus {
+	color: #898989;
 }
 
 .pages-nav, .permalink-nav {
@@ -406,7 +422,7 @@ code.simple-code {
 
 .read_more_container a {
 	display: inline-block;
-	color: #fff;
+	color: #fff !important;
 	background: #00b5ad;
 	font-size: 13px;
 	font-weight: 700;
